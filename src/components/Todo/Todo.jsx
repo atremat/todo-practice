@@ -3,7 +3,7 @@ import { GridItem } from 'components';
 import { RiEdit2Line, RiDeleteBinLine } from 'react-icons/ri';
 import style from './Todo.module.css';
 import { useDispatch } from 'react-redux';
-import { deleteTodo } from 'reduxTodo/todoSlice';
+import { changeTodo, deleteTodo } from 'reduxTodo/todoSlice';
 
 export const Todo = ({ index, text, id }) => {
   const dispatch = useDispatch();
@@ -22,7 +22,11 @@ export const Todo = ({ index, text, id }) => {
         >
           <RiDeleteBinLine size={24} />
         </button>
-        <button className={style.editButton} type="button">
+        <button
+          className={style.editButton}
+          type="button"
+          onClick={() => dispatch(changeTodo({ id, text }))}
+        >
           <RiEdit2Line size={24} />
         </button>
       </div>
