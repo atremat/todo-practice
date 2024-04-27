@@ -1,8 +1,8 @@
 import { Text, Todo } from 'components';
 import { useSelector } from 'react-redux';
-import { items } from 'reduxTodo/selectors';
+import { filteredTodos } from 'reduxTodo/selectors';
 export const TodoList = () => {
-  const todos = useSelector(items);
+  const todos = useSelector(filteredTodos);
   return (
     <>
       {todos.map((todo, idx) => (
